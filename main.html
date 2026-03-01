@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>そろばん • Soroban Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>そろばん</h1>
+    <div class="subtitle">Created by Dominic, with the aim of showing you how I approach mental calculations.</div>
+    
+    <div class="orientation-warning">📱 Rotate to landscape for best experience</div>
+    
+    <canvas id="canvas" width="568" height="380"></canvas>
+    
+    <div id="display" class="display">0</div>
+    
+    <div class="controls">
+        <button onclick="clearAbacus()" id="resetBtn">Reset 初期化</button>
+        <button onclick="randomize()" id="randomBtn">Random ランダム</button>
+        <div class="sound-toggle">
+            <span>🔊</span>
+            <input type="checkbox" id="soundCheckbox"> Sound
+        </div>
+    </div>
+    
+    <div class="mode-panel">
+        <div class="mode-item">
+            <label>🎯 Show me number:</label>
+            <input type="number" id="showNumber" value="123456789" min="0" max="999999999" step="1">
+            <button onclick="showMeNumber()" id="showBtn">Animate</button>
+        </div>
+        <div class="mode-item">
+            <label>🧮 Operation (stepwise):</label>
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                <input type="number" id="add1" class="small-input" value="1234" min="0" max="999999999">
+                <select id="operation">
+                    <option value="+">➕ Add</option>
+                    <option value="-">➖ Subtract</option>
+                </select>
+                <input type="number" id="add2" class="small-input" value="5678" min="0" max="999999999">
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; margin-top: 8px;">
+                <span style="font-weight:600;">Speed:</span>
+                <select id="speedSelect">
+                    <option value="0.5">0.5× (slower)</option>
+                    <option value="1" selected>1× (normal)</option>
+                    <option value="2">2× (faster)</option>
+                    <option value="3">3× (fastest)</option>
+                </select>
+            </div>
+            <button onclick="addNumbers()" id="addBtn">Calculate stepwise</button>
+        </div>
+    </div>
+    
+    <div class="info">
+        <strong>🧮 Beam on top, adjustable speed, larger beads</strong><br>
+        • 0.5× = 2000ms/col • 1× = 1000ms • 2× = 500ms • 3× = 333ms<br>
+        • Larger 40×26 beads, precision hit detection, all stepwise features
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
