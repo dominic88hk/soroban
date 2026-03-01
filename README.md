@@ -1,2 +1,0 @@
-# soroban
-Soroban Abacus Simulator
